@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="The design system sponsored by Cisco Brand">
+    <meta name="image" content="http://cisco-ui.cisco.com/assets/img/uikit-1200x630%402x.png">
+    <meta itemprop="name" content="Cisco UI Kit">
+    <meta itemprop="description" content="The design system sponsored by Cisco Brand">
+    <meta itemprop="image" content="http://cisco-ui.cisco.com">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Cisco UI Kit">
+    <meta name="twitter:description" content="The design system sponsored by Cisco Brand">
+    <meta property="og:title" content="Cisco UI Kit">
+    <meta property="og:description" content="The design system sponsored by Cisco Brand">
+    <meta property="og:image" content="https://cisco-ui.cisco.com/assets/img/uikit-1200x630%402x.png">
+    <meta property="og:url" content="http://cisco-ui.cisco.com">
+    <meta property="og:site_name" content="Cisco UI Kit">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="application-name" content="Cisco UI Kit">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="img/mstile.png">
+    <meta name="msapplication-square70x70logo" content="img/mstile.png">
+    <meta name="msapplication-square150x150logo" content="img/mstile.png">
+    <meta name="msapplication-wide310x150logo" content="img/mstile.png">
+    <meta name="msapplication-square310x310logo" content="img/mstile.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Create two equal columns that floats next to each other */
+    .column {
+      float: left;
+      width: 50%;
+      padding: 10px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* The container */
+    .containers {
+      display: inline;
+      position: relative;
+      padding-left: 19px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      font-size: 15px;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    /* Hide the browser's default radio button */
+    .containers input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    /* Create a custom radio button */
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 15px;
+      width: 15px;
+      background-color: #eee;
+      border-radius: 50%;
+    }
+
+    /* On mouse-over, add a grey background color */
+    .containers:hover input ~ .checkmark {
+      background-color: #ccc;
+    }
+
+    /* When the radio button is checked, add a blue background */
+    .containers input:checked ~ .checkmark {
+      background-color: #2196F3;
+    }
+
+    /* Create the indicator (the dot/circle - hidden when not checked) */
+    .checkmark:after {
+      content: "";
+      position: relative;
+      display: none;
+    }
+
+    /* Show the indicator (dot/circle) when checked */
+    .containers input:checked ~ .checkmark:after {
+      display: block;
+    }
+
+    /* Style the indicator (dot/circle) */
+    .containers .checkmark:after {
+        top: 4px;
+        left: 4px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: white;
+    }
+    </style>
+
+    <title>Webex Scheduling Permissions</title>
+
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/cui-standard.min.css') }}">
+</head>
+<body class="cui">
+    <nav class="header" id="styleguideheader" role="navigation">
+        <div class="container-fluid">
+            <div class="header-panels">
+                <div class="header-panel hidden-md-down">
+                    <a class="header__logo" href="http://www.cisco.com" target="_blank">
+                        <span class="icon-cisco"></span>
+                    </a>
+                    <h1 class="header__title">
+                        <span>Webex Scheduling Permissions</span>
+                    </h1>
+                </div>
+                <div class="header-panel header-panel--center base-margin-left base-margin-right hidden-lg-up">
+                    <a class="header__logo" href="http://www.cisco.com" target="_blank">
+                        <span class="icon-cisco"></span>
+                    </a>
+                </div>
+                <div class="header-panel header-panel--right hidden-md-down">
+                    <a href="/" class="header-item" title="UI Kit Home"><span class="icon-home"></span></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="content content--alt" style = "text-align: left">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Left Rail -->
+                <div class="col-xl-2"></div>
+
+                <!-- Middle Rail -->
+                <div class="col-xl-8">
+                    <div class="section" >
+                        <div class="panel panel--loose panel--raised base-margin-bottom">
+                            <h6>Please enter the following details to change the scheduling permissions for another user.</h6>
+                            <h7 style="position:relative;left:10px;">Example: Janette and John ("permission receiver") are supposed to be able to schedule meetings on behalf of Theresa ("permission granter").</h7>
+                            <br><br>
+                            <div class="container">
+                                <form action="{{ url_for('submit' ) }}" method="post">
+                                    <div id="checkboxes1" class="row">
+                                        <h6>Permission Granter, i.e. the person who gives the permission to schedule meetings on his/her behalf to the Permission Receiver:</h6>
+                                        <h8>Select at least one. If multiple are selected, the same changes are applied to each Webex account.</h8>
+                                        <div id="11" class="column">
+                                            <label>
+                                                <input type="checkbox" id="select_all_1">
+                                                Select all
+                                            </label>
+                                            <br>
+                                        </div>
+                                        <div id="12" class="column"><br></div>
+                                    </div>
+                                    <br>
+                                    <div id="checkboxes2" class="row">
+                                        <h6>Permission Receiver/s, i.e. the person/s who is/are now able to schedule meetings on behalf of the Permission Granter:</h6>
+                                        <div>
+                                            <h8>Do you want to add scheduling permissions to existing entries or overwrite them?</h8>
+                                            <label class="radio" id="add_radio">Add
+                                                <input type="hidden" name="radio" value="add">
+                                                <input type="radio" checked="checked" name="radio" id="add">
+                                                <span class="radio__input"></span>
+                                            </label>
+                                            <label class="radio" id="overwrite_radio">Overwrite
+                                                <input type="hidden" name="radio" value="overwrite">
+                                                <input type="radio" name="radio" id="overwrite">
+                                                <span class="radio__input"></span>
+                                            </label>
+                                        </div>
+                                        <div id="21" class="column">
+                                            <label>
+                                                <input type="checkbox" id="select_all_2">
+                                                Select all
+                                            </label>
+                                            <br>
+                                        </div>
+                                        <div id="22" class="column"><br></div>
+                                    </div>
+                                    <br>
+                                    <button class="btn btn--secondary" id = "submit" type="submit" value="Submit">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="panel panel--loose panel--raised base-margin-bottom"id="hello" style="display:none"></div>
+                    </div>
+                </div>
+
+                <!-- Right Rail -->
+                <div class="col-xl-2"></div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="footer__links">
+                <ul class="list list--inline">
+                    <li><a href="http://www.cisco.com/cisco/web/siteassets/contacts/index.html" target="_blank">Contacts</a></li>
+                    <li><a href="https://secure.opinionlab.com/ccc01/o.asp?id=jBjOhqOJ" target="_blank">Feedback</a></li>
+                    <li><a href="https://www.cisco.com/c/en/us/about/help.html" target="_blank">Help</a></li>
+
+                    <li><a href="https://www.cisco.com/c/en/us/about/legal/terms-conditions.html" target="_blank">Terms & Conditions</a></li></li>
+                    <li><a href="https://www.cisco.com/c/en/us/about/legal/privacy-full.html" target="_blank">Privacy Statement</a></li>
+                    <li><a href="https://www.cisco.com/c/en/us/about/legal/privacy-full.html#cookies" target="_blank">Cookie Policy</a></li>
+                    <li><a href="https://www.cisco.com/c/en/us/about/legal/trademarks.html" target="_blank">Trademarks</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+    <script>
+        var user_choice = {{ webex_site_users | tojson }};
+
+        var a;
+        var b = 0;
+        for (a of user_choice) {
+            b ++;
+
+            var permissiongranter = document.createElement("INPUT");
+            permissiongranter.setAttribute("type", "checkbox");
+            permissiongranter.setAttribute("id", "permissiongranter-" + a);
+            permissiongranter.setAttribute("name", "permissiongranter-" + a);
+
+            var label_permissiongranter = document.createElement("label");
+            label_permissiongranter.htmlFor = "permissiongranter-" + a;
+            label_permissiongranter.appendChild(document.createTextNode(a));
+
+            var linebreak = document.createElement("br");
+
+            if (b <= user_choice.length/2) {
+                var checkboxes1 = document.getElementById("11");
+            } else {
+                var checkboxes1 = document.getElementById("12");
+            }
+
+            checkboxes1.appendChild(permissiongranter);
+            checkboxes1.appendChild(label_permissiongranter);
+            checkboxes1.appendChild(linebreak);
+        }
+
+        document.getElementById('select_all_1').onclick = function() {
+            for (a of user_choice) {
+                var checkbox = document.getElementById("permissiongranter-" + a);
+                checkbox.checked = this.checked;
+            }
+        }
+
+        var x;
+        var y = 0;
+        for (x of user_choice) {
+            y ++;
+
+            var permissionreceiver = document.createElement("INPUT");
+            permissionreceiver.setAttribute("type", "checkbox");
+            permissionreceiver.setAttribute("id", "permissionreceiver-" + x);
+            permissionreceiver.setAttribute("name", "permissionreceiver-" + x);
+
+            var label_permissionreceiver = document.createElement("label");
+            label_permissionreceiver.htmlFor = "permissionreceiver-" + x;
+            label_permissionreceiver.appendChild(document.createTextNode(x));
+
+            var linebreak = document.createElement("br");
+
+            if (y <= user_choice.length/2) {
+                var checkboxes2 = document.getElementById("21");
+            } else {
+                var checkboxes2 = document.getElementById("22");
+            }
+
+            checkboxes2.appendChild(permissionreceiver);
+            checkboxes2.appendChild(label_permissionreceiver);
+            checkboxes2.appendChild(linebreak);
+        }
+
+        document.getElementById('select_all_2').onclick = function() {
+            for (x of user_choice) {
+                var checkbox = document.getElementById("permissionreceiver-" + x);
+                checkbox.checked = this.checked;
+            }
+        }
+
+        if ({{ alert }} === 1) {
+            alert("Success. The requested scheduling permissions were granted.");
+        } else if ({{ alert }} === 2) {
+            alert("Something went wrong. Please try again.");
+        } else if ({{ alert }} === 3) {
+            alert("Please select at least one Permission Granter.");
+        }
+
+    </script>
+</body>
+</html>
